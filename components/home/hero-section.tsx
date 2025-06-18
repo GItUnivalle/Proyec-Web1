@@ -25,7 +25,7 @@ export function HeroSection() {
         </div>
         <div className="relative h-[300px] md:h-[400px] rounded-lg overflow-hidden">
           <Image
-            src="/placeholder.svg?height=400&width=600"
+            src="/fondoinicio.png?height=400&width=600"
             alt="Sistema de distribución"
             fill
             className="object-cover"

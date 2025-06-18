@@ -25,7 +25,7 @@ export function FeaturesSection() {
           <Button className="mt-4">Solicitar demostración</Button>
         </div>
         <div className="relative h-[300px] rounded-lg overflow-hidden border">
-          <Image src="/placeholder.svg?height=300&width=500" alt="Sistema de gestión" fill className="object-cover" />
+          <Image src="/fondoinicio2.png?height=300&width=500" alt="Sistema de gestión" fill className="object-cover" />
         </div>
       </div>
     </section>

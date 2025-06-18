@@ -6,22 +6,22 @@ export function ProductsSection() {
     {
       name: "Papelería",
       description: "Papel, cuadernos, libretas",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "papeleria.png/?height=200&width=300",
     },
     {
       name: "Escritura",
       description: "Bolígrafos, lápices, marcadores",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/escritura.png?height=200&width=300",
     },
     {
       name: "Organización",
       description: "Archivadores, carpetas, separadores",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/organizacion.png?height=200&width=300",
     },
     {
       name: "Accesorios",
       description: "Grapadoras, tijeras, pegamento",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/accesorios.png?height=200&width=300",
     },
   ]
 
