@@ -38,16 +38,17 @@ export const n8nChatbotWorkflow = {
     },
     {
       parameters: {
-        url: "https://lujjudeadillbjexpajo.supabase.co/rest/v1/Producto",
+        // url "https://nslovcpniaogjsxxzycu.supabase.co/rest/v1/producto"
+        url: "https://nslovcpniaogjsxxzycu.supabase.co/rest/v1/producto?select=*&estado=eq.true&limit=5",
         authentication: "genericCredentialType",
         genericAuthType: "httpHeaderAuth",
         httpMethod: "GET",
         options: {
           headers: {
             apikey:
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1amp1ZGVhZGlsbGJqZXhwYWpvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk2MzE2NjEsImV4cCI6MjA2NTIwNzY2MX0.F0lQ0910dUtbBkoywFEH5tDrDZLGSM2pYb7qpfLIi5c",
+              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5zbG92Y3BuaWFvZ2pzeHh6eWN1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk2NjA4MjMsImV4cCI6MjA0NTIzNjgyM30.Bwf4kOhyFOWb6D_fTSpQ7M_-WuvsDHor9umrMsI5ivU",
             Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx1amp1ZGVhZGlsbGJqZXhwYWpvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk2MzE2NjEsImV4cCI6MjA2NTIwNzY2MX0.F0lQ0910dUtbBkoywFEH5tDrDZLGSM2pYb7qpfLIi5c",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5zbG92Y3BuaWFvZ2pzeHh6eWN1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk2NjA4MjMsImV4cCI6MjA0NTIzNjgyM30.Bwf4kOhyFOWb6D_fTSpQ7M_-WuvsDHor9umrMsI5ivU",
           },
           queryParameters: {
             Estado: "eq.true",

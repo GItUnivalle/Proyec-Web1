@@ -3,8 +3,7 @@
 import { useState, useCallback } from "react"
 import type { ChatMessage, ChatbotState, N8NWebhookResponse } from "@/types/chatbot"
 
-//const N8N_WEBHOOK_URL = "https://your-n8n-instance.com/webhook/chatbot" // Reemplaza con tu URL de N8N
-const N8N_WEBHOOK_URL = "http://localhost:5678/webhook/chatbot"
+const N8N_WEBHOOK_URL = "/api/chatbot" // o la URL pública de tu instancia n8n
 
 export function useChatbot() {
   const [chatState, setChatState] = useState<ChatbotState>({
@@ -62,7 +61,7 @@ export function useChatbot() {
           message: userMessage,
           context: context,
           timestamp: new Date().toISOString(),
-          sessionId: `session_${Date.now()}`, // En producción, usar un ID de sesión persistente
+          sessionId: `session_${Date.now()}`, // En producción, usar un ID persistente
         }),
       })
 
@@ -94,19 +93,35 @@ export function useChatbot() {
       setTyping(true)
 
       try {
-        // Simular delay de respuesta
+        // Simular delay para mejor UX
         await new Promise((resolve) => setTimeout(resolve, 1000))
 
-        // Enviar a N8N y obtener respuesta
+        // Enviar mensaje a N8N y obtener respuesta
         const n8nResponse = await sendToN8N(content, context)
+
+        // Normalizar productos para frontend
+        const productsNormalized = n8nResponse.products?.map((p: any) => ({
+          // Convierte a nombres que usa tu componente ChatMessage
+          NomProducto: p.nomproducto || p.NomProducto || "",
+          marca: p.marca || "",
+          PrecioUnitario: p.preciounitario || p.PrecioUnitario || 0,
+          Stock: p.stock || p.Stock || 0,
+          descripcion: p.descripcion || "",
+          imagen: p.imagen || "",
+          // Puedes añadir más campos si quieres
+        }))
 
         // Agregar respuesta del bot
         addMessage({
           content: n8nResponse.message,
           sender: "bot",
-          type: n8nResponse.products ? "product" : n8nResponse.suggestions ? "options" : "text",
+          type: productsNormalized
+            ? "product"
+            : n8nResponse.suggestions
+            ? "options"
+            : "text",
           data: {
-            products: n8nResponse.products,
+            products: productsNormalized,
             options: n8nResponse.suggestions,
             nextAction: n8nResponse.nextAction,
           },
@@ -135,7 +150,7 @@ export function useChatbot() {
   const clearChat = useCallback(() => {
     setChatState((prev) => ({
       ...prev,
-      messages: [prev.messages[0]], // Mantener solo el mensaje de bienvenida
+      messages: [prev.messages[0]], // Mantener sólo mensaje bienvenida
     }))
   }, [])
 
