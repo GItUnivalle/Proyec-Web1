@@ -23,7 +23,7 @@ export async function POST(req: Request) {
                 success: false,
                 message: "Error interno al contactar a N8N.",
             },
-            { status: 500 }
+            { status: 500 },
         )
     }
 }
