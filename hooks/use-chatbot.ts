@@ -70,7 +70,6 @@ export function useChatbot() {
       })
       if (!response.ok) throw new Error("Error en la comunicación con N8N")
       const json = await response.json()
-      console.log("Respuesta n8n:", json)  // <-- Aquí el console.log
       return json
     } catch (error) {
       console.error("Error sending to N8N:", error)
